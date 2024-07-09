@@ -14,7 +14,6 @@ const username = 'Mango';
 let age = 20;
 
 const price = 200;
-
 // price = 130; // TypeError
 
 // console.log(ege); // ReferrenceError

@@ -4,28 +4,33 @@
  * - Конкатенація рядків
  * - Шаблонні рядки
  * - Довжина рядка
- * - Індексація елементів
+ * - Індексація елементів в рядках
  * - Незмінність рядків
  */
 
 const firstName = 'Chelsy';
 const lastName = 'Emerald';
 
-const fullName = 'Hello' + ' ' + firstName + ' ' + lastName + '!';
-const fullName_1 = `Hello ${firstName} ${lastName}!`;
-// console.log('fullName:', fullName);
-// console.log('fullName_1:', fullName_1);
+const fullName = firstName + ' ' + lastName;
+// console.log("fullName:", fullName);
+
+const greeting = 'Hello' + ' ' + firstName + ' ' + lastName + '!';
+// console.log("greeting:", greeting);
+const usefullGreeting = `Hello ${firstName} ${lastName}!`;
+// console.log("usefullGreeting:", usefullGreeting);
 
 const quantity = 15;
-const orderMsg = `You ordered ${quantity + 100} bots`; // ` - backtick symbol
-console.log('orderMsg:', orderMsg);
+const orderingMessage = `You ordered ${100 + quantity} bot`;
+// console.log("orderingMessage:", orderingMessage)
 
-const message = 'This string is 28 chars long ';
-// console.log(message.length); // 28
-const lastSymbol = message[message.length - 1]; // -> message[27]
-console.log('lastSymbol:', lastSymbol);
-// message[0] = 't';
-// console.log('Update message:', message);
+const message = 'This string is 28 chars long';
+
+// console.log(message[0]); // firts char
+// console.log(message[15]); // some char
+// console.log(message[message.length - 1]); // last char
+
+const messageLength = message.length;
+// console.log("messageLength:", messageLength)
 
 /**
  * Склади фразу за допомогою шаблонних рядків
