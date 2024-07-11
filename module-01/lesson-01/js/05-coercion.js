@@ -17,5 +17,5 @@
 // console.log('5' + null);
 // console.log('5' + undefined);
 
-const result = 5 + '1' + 9 / 3;
-console.log('result:', result);
+// const result = 5 + '1' + 9 / 3;
+// console.log('result:', result);

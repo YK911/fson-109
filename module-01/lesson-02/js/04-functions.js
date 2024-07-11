@@ -5,19 +5,54 @@
  * - Параметри та аргументи
  * - Повернення значення
  */
+// const a = 1;
+// const b = 1;
 
-// function multiply(number_1, number_2) {
-//   // let  number_1 = 5
-//   // let  number_2 = 3
+// const isEqual = a === b;
+// console.log('isEqual:', isEqual);
 
-//   const result = number_1 * number_2;
-//   console.log(result);
-//   return result;
+// const a1 = 10;
+// const b1 = 12;
 
-//   // return undefined
+// const isEqual1 = a1 === b1;
+// console.log('isEqual1:', isEqual1);
+
+// function makeComparison(a, b) {
+//   const isEqual = a === b;
+//   console.log(isEqual);
 // }
 
-// const result_1 = multiply(5, 3);
+// {
+//   const value = 'John';
+//   console.log(value);
+// }
+
+// const obj = {
+//   key: 'value',
+// };
+// // makeComparison(1, 2);
+// // makeComparison(11, 11);
+// // makeComparison(111, 110);
+
+// function multiply(number1, number2) {
+//   // let  number1 = 5
+//   // let  number2 = 3
+//   // const result = number1 * number2;
+//   // console.log(result);
+//   // console.log(value);
+//   const str = `Oparion finished with result ${number1 * number2}`;
+//   // localStorage.setItem('operation', str);
+//   return str; // 15
+
+//   console.log('after return');
+
+//   // return undefined;
+// }
+
+// const result = multiply(5, 3); //`Oparion finished with result ${number1 * number2}`
+// console.log('result:', result);
+// const anotherResult = multiply(10, 20); //`Oparion finished with result ${number1 * number2}`
+// console.log('anotherResult:', anotherResult);
 
 // function fnA() {
 //   console.log('Inside fnA');
@@ -25,7 +60,7 @@
 // function fnB() {
 //   console.log('Inside fnB');
 // }
-// function fnD() {
+// function fnC() {
 //   console.log('Inside fnC');
 // }
 // console.log('Before fnA execution');
@@ -50,15 +85,17 @@
  */
 
 function calcBMI(weight, height) {
-  const comaToDotWeight = weight.replace(',', '.'); // "88.3"
-  const comaToDotHeight = height.replace(',', '.'); // "1.75"
-
-  // const weightToNumber = Number.parseFloat(comaToDotWeight);
-  // const heighToNumber = Number.parseFloat(comaToDotHeight);
-  const result = comaToDotWeight / comaToDotHeight ** 2;
-
-  return Number(result.toFixed(2));
+  const bmi =
+    Number(weight.replace(',', '.')) / Number(height.replace(',', '.')) ** 2;
+  // return Math.round(bmi * 10) / 10;
+  return bmi.toFixed(2);
 }
 
-const bmi = calcBMI('88,3', '1.75');
-console.log(bmi); // 28.8
+const weightEl = user_weight.value;
+console.log('weightEl:', weightEl);
+const heightEl = user_height.value;
+console.log('heightEl:', heightEl);
+
+const result = calcBMI(weightEl, heightEl);
+console.log('result:', result);
+bmi_result.textContent = result;
