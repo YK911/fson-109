@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Branching</title>
+  </head>
+  <body>
+    <!-- <script src="./js/01-branching.js" type="module"></script> -->
+    <!-- <script src="./js/02-scope.js" type="module"></script> -->
+    <!-- <script src="./js/03-tasks.js" type="module"></script> -->
+    <!-- <script src="./js/04-switch.js" type="module"></script> -->
+    <!-- <script src="./js/05-operators.js" type="module"></script> -->
+    <!-- <script src="./js/06-tasks.js" type="module"></script> -->
+    <script>
+      // Q&A
+      const word = 'qwerty';
+      // console.log(word.length);
+
+      const res = word.slice(0, 5);
+      // console.log('res :', res);
+      // console.log('res:', res === 'qwe'.slice(0, 1));
+      // console.log('qwe' === 'qwe');
+
+      function getFileName(file) {
+        console.log(file.indexOf('.')); // -1
+
+        //  Boolean(-1) -> true
+        if (file.indexOf('.') === -1) {
+          return file;
+        } else {
+          return file.slice(0, file.indexOf('.'));
+        }
+      }
+
+      const result = getFileName('picture-1.png');
+      // console.log('result:', result);
+      const result1 = getFileName('picture-1');
+      // console.log('result1:', result1);
+    </script>
+  </body>
+</html>
