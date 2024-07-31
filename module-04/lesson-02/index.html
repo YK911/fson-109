@@ -6,9 +6,70 @@
     <title>Objects</title>
   </head>
   <body>
-    <!-- <script type="module" src="./js/01-array.js"></script> -->
+    <!-- <script type="module" src="./js/01-arrays.js"></script> -->
     <!-- <script type="module" src="./js/02-methods.js"></script> -->
     <!-- <script type="module" src="./js/03-spread-rest.js"></script> -->
     <!-- <script type="module" src="./js/04-tasks.js"></script> -->
+
+    <!-- <script>
+      // const themeSettings = {
+      //   themeName: 'light',
+      //   auto: false,
+      //   changeTheme(newTheme) {
+      //     this.themeName = newTheme;
+      //   },
+      //   // changeTheme: function name(newTheme) {
+      //   //   this.themeName = newTheme;
+      //   // },
+      // };
+
+      // themeSettings.changeTheme('dark');
+
+      // console.log(themeSettings);
+
+      // const propName = 'name';
+      // const user = {
+      //   age: 25,
+      // };
+
+      // user[propName] = 'Henry Sibola'; // user['name'] = 'Henry Sibola';
+      // user['isOnline'] = true;
+
+      // // {
+      // //    age: 25,
+      // //    isOnline: true,
+      // //    name: 'Henry Sibola'
+      // // }
+      // console.log(user.name); // "Henry Sibola"
+    </script> -->
+    <!-- <script>
+      function getAllPropValues(propName) {
+        const products = [
+          { name: 'Radar', price: 1300, quantity: 4 },
+          { name: 'Scanner', price: 2700, quantity: 3 },
+          { name: 'Droid', price: 400, quantity: 7 },
+          { name: 'Grip', price: 1200, quantity: 9 },
+        ];
+
+        const values = [];
+
+        for (const product of products) {
+          // if (product[propName] === undefined) {
+          //   return values;
+          // }
+          if (propName in product) {
+            values.push(product[propName]);
+          }
+        }
+
+        return values;
+      }
+
+      let result;
+      // result = getAllPropValues('name'); // ['Radar', 'Scanner', 'Droid', 'Grip']
+      result = getAllPropValues('quantity'); // [4,3,7,9];
+      // result = getAllPropValues('total'); // [];
+      console.log('result:', result);
+    </script> -->
   </body>
 </html>

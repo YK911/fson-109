@@ -19,20 +19,54 @@ const friends = [
 /**
  * Пошук друга за іменем
  */
-function findFriendByName(allFriends, friendName) {}
+function findFriendByName(allFriends, friendName) {
+  // allFriends = [...] friendName = 'Poly'
+  for (const friend of allFriends) {
+    // console.log(friend);
+    // console.log(friend.name);
+    // 'Poly' === 'Poly'
+    if (friend.name === friendName) {
+      return friend;
+    }
+  }
+
+  return null;
+}
 // console.log(findFriendByName(friends, 'Poly'));
 // console.log(findFriendByName(friends, 'Chelsy'));
 
 /**
  * Отримуємо імена всіх друзів
  */
-function getAllNames(allFriends) {}
+function getAllNames(allFriends) {
+  const friendNames = [];
+
+  for (const friend of allFriends) {
+    // console.log(friend.name);
+    friendNames.push(friend.name);
+  }
+
+  return friendNames;
+}
 
 // console.log(getAllNames(friends));
 /**
  * Отримуємо імена тільки тих друзів, які зараз онлайн
  */
-function getOnlineFriends(allFriends) {}
+function getOnlineFriends(allFriends) {
+  let onlineFriends = [];
+
+  for (const friend of allFriends) {
+    if (friend.online) {
+      // console.log(friend.online);
+      // console.log(friend.name);
+
+      onlineFriends.push(friend.name);
+    }
+  }
+
+  return onlineFriends.join(' | ');
+}
 
 // console.log(getOnlineFriends(friends));
 // #endregion
@@ -51,7 +85,21 @@ const stones = [
   { name: 'Щебінь', price: 200, quantity: 2 },
 ];
 
-function calcTotalPrice(stones, stoneName) {}
+// console.table(stones);
 
-// console.log(calcTotalPrice(stones, 'Щебінь'));
-// console.log(calcTotalPrice(stones, 'Смарагд'));
+function calcTotalPrice(stones, stoneName) {
+  let totalPrice = 0;
+
+  for (const stone of stones) {
+    // console.log(stone.name);
+    if (stone.name === stoneName) {
+      totalPrice = stone.price * stone.quantity;
+      // return stone.price * stone.quantity;
+    }
+  }
+
+  return totalPrice || `${stoneName} doesn't exist`;
+}
+
+// console.log(calcTotalPrice(stones, 'Щебінь')); // 400
+// console.log(calcTotalPrice(stones, 'Смарагд')); // "..."
