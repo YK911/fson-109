@@ -21,14 +21,7 @@ const account = {
    * Метод створює та повертає об'єкт транзакції.
    * Приймає суму та тип транзакції.
    */
-  createTransaction(amount, type) {
-    const transaction = {
-      id: this.transactions.length + 1,
-      amount,
-      type,
-    };
-    return transaction;
-  },
+  createTransaction(amount, type) {},
 
   /**
    * Метод, що відповідає за додавання суми до балансу.
@@ -36,11 +29,7 @@ const account = {
    * Викликає createTransaction для створення об'єкта транзакції
    * після чого додає його до історії транзакцій
    */
-  deposit(amount) {
-    const depositInfo = this.createTransaction(amount, Transaction.DEPOSIT);
-    this.balance += amount;
-    this.transactions.push(depositInfo);
-  },
+  deposit(amount) {},
 
   /**
    * Метод, що відповідає за зняття суми з балансу.
@@ -51,60 +40,34 @@ const account = {
    * Якщо amount більше ніж поточний баланс, виводь повідомлення
    * про те, що зняття такої суми не можливе, недостатньо коштів.
    */
-  withdraw(amount) {
-    if (amount > this.balance) {
-      return `Your balance is less than ${amount}`;
-    }
-
-    this.balance -= amount;
-    const withdrawInfo = this.createTransaction(amount, Transaction.WITHDRAW);
-    this.transactions.push(withdrawInfo);
-  },
+  withdraw(amount) {},
 
   /**
    * Метод повертає поточний баланс
    */
-  getBalance() {
-    return this.balance;
-  },
+  getBalance() {},
 
   /**
    * Метод шукає та повертає об'єкт транзакції по id
    */
-  getTransactionDetails(id) {
-    for (const transaction of this.transactions) {
-      if (transaction.id === id) {
-        return transaction;
-      }
-    }
-
-    return null;
-  },
+  getTransactionDetails(id) {},
 
   /**
    * Метод повертає кількість коштів
    * певного типу транзакції з усієї історії транзакцій
    */
-  getTransactionTotal(type) {
-    let total = 0;
-    for (const transaction of this.transactions) {
-      if (transaction.type === type) {
-        total += transaction.amount;
-      }
-    }
-    return total;
-  },
+  getTransactionTotal(type) {},
 };
 
-let result;
+// let result;
 
-account.deposit(1000);
-account.deposit(2000);
-account.deposit(3000);
-account.withdraw(6000);
-account.getTransactionDetails(3);
-account.deposit(500);
-account.withdraw(50);
+// account.deposit(1000);
+// account.deposit(2000);
+// account.deposit(3000);
+// account.withdraw(6000);
+// account.getTransactionDetails(3);
+// account.deposit(500);
+// account.withdraw(50);
 
-result = account.getTransactionTotal('withdraw');
-console.log('result:', result);
+// result = account.getTransactionTotal('withdraw');
+// console.log('result:', result);
