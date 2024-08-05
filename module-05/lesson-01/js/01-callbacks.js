@@ -6,45 +6,79 @@
  * - Інлайн-колбеки
  */
 
-function fnA(message) {
+function fnA(message, callback) {
+  // callback = function (number) {
+  //   console.log('Log during fnB execution ', number);
+  // };
   console.log(message);
+  console.log('callback:', callback);
+  callback(51); // undefined(51)
 }
 
 function fnB(number) {
   console.log('Log during fnB execution ', number);
 }
 
-fnA('A message');
+// fnA('A message', fnB);
 
 /**
  * Функція calc(a, b, callback)
  */
 
-function calc(a, b) {}
+function showCalcResult(a, b, callback) {
+  // a = 2
+  // b = 3
+  const result = callback(a, b);
+  console.log('showCalcResult  result:', result);
+}
 
-calc(2, 3);
+const sum = function (valueA, valueB) {
+  const sum = valueA + valueB;
+  // console.log('Callback function sum:', sum);
+  return sum;
+};
+const multiply = function (valueA, valueB) {
+  return valueA * valueB;
+};
+const divide = function (valueA, valueB) {
+  return valueA / valueB;
+};
 
-calc(10, 8);
+// showCalcResult(2, 3, sum);
+// showCalcResult(10, 8, multiply);
+// showCalcResult(800, 8, divide);
 
 /**
  * Напишіть функцію each(array, callback), яка першим параметром очікує масив,
- * а другим - функцію, яка застосовується до кожного елемента масиву. Функція
- * each повинна повернути новий масив, елементами якого будуть
- * результати виклику коллбека.
+ * а другим - функцію, яка застосовується до кожного елемента масиву.
+ * Функція each повинна повернути новий масив, елементами якого
+ * будуть результати виклику коллбека.
  */
 
-function each(array, callback) {}
+function each(array, callback) {
+  // console.log(array);
+  // console.log(callback);
+  const transformedArray = [];
 
-// console.log(
-//   each([64, 49, 36, 25, 16], function (value) {
-//     return value * 2;
-//   })
-// );
+  for (const value of array) {
+    // console.log('each  value:', value);
+    // console.log(callback(value));
+    transformedArray.push(callback(value));
+  }
+
+  return transformedArray;
+}
+
+console.log(
+  each([64, 49, 36, 25, 16], function (value) {
+    return value * 2;
+  })
+); // [128, 98, 72, 50, 32]
 // console.log(
 //   each([64, 49, 36, 25, 16], function (value) {
 //     return value - 10;
 //   })
-// );
+// ); // [54, 39, 26, 15, 6]
 // console.log(
 //   each([64, 49, 36, 25, 16], function (value) {
 //     return Math.sqrt(value);

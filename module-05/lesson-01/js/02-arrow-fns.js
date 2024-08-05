@@ -1,62 +1,56 @@
 /**
- * Функція зворотнього виклика (callback)
- *
- * - Функція як значення
- * - Колбек-функції
- * - Інлайн-колбеки
+ * Стрілочні функції
+ * - Оголошення
+ * - Явне і неявне поверненя
+ * - Псевдомасив arguments (...args)
+ * - Інлайн стрілочні функції
  */
 
-function fnA(message) {
-  console.log(message);
+function add(a, b, c) {
+  // console.log(arguments);
+  return a + b + c;
 }
 
-function fnB(number) {
-  console.log('Log during fnB execution ', number);
+// const addArrow = (a, b, c) => a + b + c;
+const addArrow = (...args) => {
+  // console.log(args);
+  let total = 0;
+  for (const number of args) {
+    total += number;
+  }
+  return total;
+};
+
+// console.log(add(5, 10, 15));
+// console.log(add(45, 10, 15, 12, 11, 2));
+// console.log(addArrow(45, 10, 15, 12, 11, 2));
+
+/**
+ * ---------------------------
+ */
+function fnA() {
+  return {
+    a: 5,
+  };
 }
 
-fnA('A message');
+console.log(fnA());
+
+const createObject = () => ({
+  a: 5,
+});
+
+console.log('Arrow fn', createObject());
 
 /**
  * Функція calc(a, b, callback)
  */
 
-function calc(a, b) {}
+function calc(a, b, callback) {
+  const result = callback(a, b);
+  console.log(result);
+}
 
-calc(2, 3);
+calc(2, 3, (x, y) => x + y);
 
-calc(10, 8);
-
-/**
- * Напишіть функцію each(array, callback), яка першим параметром очікує масив,
- * а другим - функцію, яка застосовується до кожного елемента масиву. Функція
- * each повинна повернути новий масив, елементами якого будуть
- * результати виклику коллбека.
- */
-
-function each(array, callback) {}
-
-// console.log(
-//   each([64, 49, 36, 25, 16], function (value) {
-//     return value * 2;
-//   })
-// );
-// console.log(
-//   each([64, 49, 36, 25, 16], function (value) {
-//     return value - 10;
-//   })
-// );
-// console.log(
-//   each([64, 49, 36, 25, 16], function (value) {
-//     return Math.sqrt(value);
-//   })
-// );
-// console.log(
-//   each([1.5, 2.1, 16.4, 9.7, 11.3], function (value) {
-//     return Math.ceil(value);
-//   })
-// );
-// console.log(
-//   each([1.5, 2.1, 16.4, 9.7, 11.3], function (value) {
-//     return Math.floor(value);
-//   })
-// );
+calc(10, 8, (x, y) => x - y);
