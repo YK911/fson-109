@@ -10,29 +10,31 @@
  * - приводить елементи до рядка і сортує за [Unicode](https://unicode-table.com/en/)
  */
 
-const numbers = [1, 9, 6, 2, 3];
+const numbers = [1, 9, 3, 6, 2, 3, 11];
 
-const sorted = numbers;
-console.log('sorted ', sorted);
+const sorted = numbers.toSorted();
+
+// console.log('sorted ', sorted);
+// console.log('numbers ', numbers);
 
 const letters = ['b', 'B', 'a', 'A'];
-console.log('letters', letters);
+const sortedLetters = letters.toSorted();
+// console.log('letters', letters);
 
 /**
  * compareFunction - функція порівняння (callback)
  * Елементи масиву сортуються відповідно до її значення, що повертається
  */
+// let result = numbers.toSorted((curEl, nextEl) => {
+//   return curEl - nextEl;
+// });
+let result = numbers.toSorted((a, b) => a - b);
+// console.log('result: ', result);
 
-console.log(
-  numbers.toSorted((curEl, nextEl) => {
-    return nextEl - curEl;
-  })
-);
-
-const descSortedNumbers = numbers;
-const ascSortedNumbers = numbers;
-console.log('descSortedNumbers', descSortedNumbers);
-console.log('ascSortedNumbers', ascSortedNumbers);
+const descSortedNumbers = numbers.toSorted((a, b) => b - a);
+const ascSortedNumbers = numbers.toSorted((a, b) => a - b);
+// console.log('descSortedNumbers', descSortedNumbers);
+// console.log('ascSortedNumbers', ascSortedNumbers);
 
 /**
  * Сортування масиву об'єктів
@@ -42,16 +44,23 @@ const players = [
   { id: 'player-2', name: 'Poly', timePlayed: 470, online: true },
   { id: 'player-3', name: 'Kiwi', timePlayed: 230, online: true },
   { id: 'player-4', name: 'Ajax', timePlayed: 150, online: false },
+  { id: 'player-4', name: 'ajax', timePlayed: 150, online: false },
   { id: 'player-5', name: 'Chelsey', timePlayed: 80, online: true },
 ];
 
 // За ігровим часом
-const sortedByBestPlayers = players;
+const sortedByBestPlayers = players.toSorted(
+  (a, b) => b.timePlayed - a.timePlayed
+);
 console.table(sortedByBestPlayers);
 
-const sortedByWorstPlayers = players;
+const sortedByWorstPlayers = players.toSorted(
+  (a, b) => a.timePlayed - b.timePlayed
+);
 console.table(sortedByWorstPlayers);
 
 // По першій літері имені
-const byName = players;
+const byName = players.toSorted((a, b) => {
+  return a.name[0].localeCompare(b.name[0]);
+});
 console.table(byName);

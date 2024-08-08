@@ -1,23 +1,23 @@
-/**
- * Ланцюжки методів
- */
-const numbers = [1, 5, 2, 4, 3];
+// /**
+//  * Ланцюжки методів
+//  */
+// const numbers = [1, 5, 2, 4, 3];
 
-const greaterThenTwo = numbers;
-console.log(greaterThenTwo);
+// const greaterThenTwo = numbers;
+// console.log(greaterThenTwo);
 
-const multByThree = greaterThenTwo;
-console.log(multByThree);
+// const multByThree = greaterThenTwo;
+// console.log(multByThree);
 
-const sorted = multByThree;
-console.log(sorted);
+// const sorted = multByThree;
+// console.log(sorted);
 
-const sortedbyChaining = numbers;
-console.log(sortedbyChaining);
+// const sortedbyChaining = numbers;
+// console.log(sortedbyChaining);
 
-/**
- * -------------------------------------
- */
+// /**
+//  * -------------------------------------
+//  */
 const allCars = [
   {
     make: 'Honda',
@@ -116,3 +116,27 @@ const getModelsOnSale = cars => {};
 const getSortedCarsOnSale = cars => {};
 
 // console.table(getSortedCarsOnSale(allCars));
+
+const students = [
+  { name: 'Mango', score: 83, courses: ['mathematics', 'physics'] },
+  { name: 'Poly', score: 59, courses: ['science', 'mathematics'] },
+  { name: 'Ajax', score: 37, courses: ['physics', 'biology'] },
+  { name: 'Kiwi', score: 94, courses: ['literature', 'science'] },
+];
+
+// [
+//   'mathematics',
+//   'physics',
+//   'science',
+//   'mathematics',
+//   'physics',
+//   'biology',
+//   'literature',
+//   'science',
+// ];
+
+const uniqueSortedCourses = students
+  .flatMap(student => student.courses)
+  .filter((course, index, array) => array.indexOf(course) === index)
+  .toSorted((a, b) => a.localeCompare(b));
+console.log('uniqueSortedCourses:', uniqueSortedCourses);
