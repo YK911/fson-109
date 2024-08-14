@@ -9,7 +9,7 @@ const mango = new User({
 });
 
 console.log(mango.login); // Mango
-mango.login = 'Mangodoge';
+mango.login = 'Mangodog';
 console.log(mango.login); // Mangodoge
 
 const poly = new User({
