@@ -11,7 +11,34 @@ const options = [
 ];
 
 const colorPickerContainerEl = document.querySelector('.js-color-picker');
+colorPickerContainerEl.style.display = 'flex';
+colorPickerContainerEl.style.gap = '20px';
 
+colorPickerContainerEl.style = {};
+colorPickerContainerEl.style.display = 'flex';
+colorPickerContainerEl.style.gap = '20px';
 /**
  * Пишемо функцію для створення розмітки колорпікера
  */
+
+// const boxesWithOptions = options.map(option => {
+//   const boxEl = document.createElement('div');
+//   boxEl.style.backgroundColor = option.color;
+//   boxEl.style.width = '30px';
+//   boxEl.style.height = '30px';
+//   boxEl.setAttribute('data-label', option.label);
+
+//   return boxEl;
+// });
+
+for (const option of options) {
+  const boxEl = document.createElement('div');
+  boxEl.style.backgroundColor = option.color;
+  boxEl.style.width = '30px';
+  boxEl.style.height = '30px';
+  boxEl.setAttribute('data-label', option.label);
+
+  colorPickerContainerEl.append(boxEl);
+}
+// console.log(boxesWithOptions);
+// colorPickerContainerEl.append(...boxesWithOptions);

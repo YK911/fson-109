@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Properties</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+      .hero__title span {
+        color: orangered;
+      }
+    </style>
   </head>
   <body>
     <p><a href="./index.html">Go back</a></p>
 
     <section class="hero">
-      <h1 class="hero__title">About me</h1>
+      <h1 class="hero__title"><small>😻</small> About <span>me!</span></h1>
       <img
         class="hero__image"
         src="https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=480"
@@ -21,14 +26,14 @@
 
     <hr />
 
-    <input type="text" class="js-input" />
+    <input class="js-input" type="text" value="Kitty" />
 
     <div class="actions">
-      <button type="button" data-action="add">Create</button>
-      <button type="button" data-action="remove">Delete</button>
+      <button type="button" data-action="add" data-value="1">Create</button>
+      <button type="button" data-action="remove" data-value="-1">Delete</button>
       <button type="button" data-action="edit">Edit</button>
     </div>
 
-    <script src="./js/02-properties.js"></script>
+    <script src="./js/02-roperties.js"></script>
   </body>
 </html>

@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>classList*</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+      [href='/contact'] {
+      }
+    </style>
   </head>
   <body>
     <p><a href="./index.html">Go back</a></p>
+
+    <button class="js-toggle-btn" type="button">Toggle class</button>
 
     <ul class="site-nav">
       <li class="site-nav__item">
@@ -20,6 +26,18 @@
         <a href="/contact" class="site-nav__link">Contacts</a>
       </li>
     </ul>
+
+    <!-- <form>
+      <label for="user-email">Email</label>
+      <input type="email" id="user-email" />
+
+      <label>
+        <input type="checkbox" />
+        <span>User agreement</span>
+      </label>
+
+      <button type="submit" disabled>Send</button>
+    </form> -->
 
     <script src="./js/03-classlist.js"></script>
   </body>

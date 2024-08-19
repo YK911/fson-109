@@ -5,14 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>querySelector*</title>
     <link rel="stylesheet" href="./css/styles.css" />
+
+    <style>
+      section > .container > .magic-btn {
+      }
+      section .magic-btn {
+      }
+      .magic-btn {
+      }
+      [type='button'] {
+        color: red;
+      }
+    </style>
   </head>
   <body>
     <p><a href="./index.html">Go back</a></p>
 
-    <button type="button" class="magic-btn js-magic-btn">
-      Magic button
-      <span class="icon">🧙‍♂️</span>
-    </button>
+    <section>
+      <div class="container">
+        <button type="button" class="magic-btn js-magic-btn">
+          Magic button
+          <span class="icon">🧙‍♂️</span>
+        </button>
+        <button type="button" class="magic-btn js-magic-btn">
+          Another magic button
+          <span class="icon">🧙‍♂️</span>
+        </button>
+      </div>
+    </section>
 
     <ul class="site-nav">
       <li class="site-nav__item">

@@ -38,6 +38,12 @@ body {
   color: tomato;
 }
 
+.active {
+  color: lightblue;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
 .color-picker__option {
   display: inline-block;
   width: 64px;
@@ -61,4 +67,9 @@ body {
 .title__link {
   display: inline-flex;
   margin-left: 40px;
+}
+
+.color-picker {
+  display: flex;
+  gap: 20px;
 }
