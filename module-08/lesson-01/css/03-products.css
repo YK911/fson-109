@@ -1,4 +1,5 @@
 ul {
+  padding: 0;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -20,6 +21,8 @@ ul {
 .item img {
   width: 250px;
   height: 300px;
+  object-fit: contain;
+  object-position: center;
   border-radius: 8px;
   margin-bottom: 10px;
 }

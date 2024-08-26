@@ -44,3 +44,53 @@ const products = [
 ];
 
 const container = document.querySelector('.products');
+container.insertAdjacentHTML('beforeend', generateProductsMarkup(products));
+
+function generateProductsMarkup(products) {
+  return products
+    .map(product => {
+      return `
+        <li class="item js-product-item" data-id="${product.id}">
+          <img
+            src="${product.img}"
+            alt="${product.name}"
+          />
+          <h3>${product.name}</h3>
+          <p>Price: <b>${product.price}</b> uah</p>
+        </li>
+        `;
+    })
+    .join('');
+}
+
+container.addEventListener('click', onCardClick);
+
+function onCardClick(event) {
+  // console.log(event.target);
+  // console.log(event.currentTarget);
+  if (event.target === event.currentTarget) {
+    console.log('Click on UL');
+    return;
+  }
+  // if (event.target.nodeName === 'UL') {
+  //   console.log('Click on Ul');
+  //   return;
+  // }
+
+  const currentEl = event.target.closest('.js-product-item');
+  const id = Number(currentEl.dataset.id);
+  const currentProduct = products.find(product => product.id === id);
+
+  const instance = basicLightbox.create(`
+   <div class="modal">
+      <img
+        src="${currentProduct.img}"
+        alt="${currentProduct.name}"
+      />
+      <h2>${currentProduct.name}</h2>
+      <h3>${currentProduct.price}</h3>
+      <p>${currentProduct.description}</p>
+    </div>
+  `);
+  instance.show();
+}
