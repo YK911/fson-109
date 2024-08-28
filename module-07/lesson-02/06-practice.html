@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Search</title>
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/modal.css" />
+    <link rel="stylesheet" href="./css/practice.css" />
   </head>
   <body>
     <p><a href="index.html">Go back</a></p>
 
-    <form action="submit" class="js-form car-search">
+    <form class="car-search js-form" action="submit">
       <div class="car-group">
-        <input type="text" name="query" class="car-input" placeholder="Пошук" />
+        <input class="car-input" type="text" name="query" placeholder="Пошук" />
       </div>
       <div class="car-group">
         <select name="options" class="car-select">
@@ -24,7 +24,16 @@
       <button class="car-button">Пошук</button>
     </form>
 
-    <ul class="js-list car-list"></ul>
+    <ul class="car-list js-list">
+      <!-- <li class="car-item" data-id="${item.id}">
+        <div>
+          <img src="${item.img}" alt="${item.car} ${item.type}" />
+        </div>
+        <h3>${item.car}</h3>
+        <p>${item.type}</p>
+        <p>Price: <b>${item.price}</b></p>
+      </li> -->
+    </ul>
 
     <script src="./js/06-practice.js"></script>
   </body>

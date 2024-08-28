@@ -1,0 +1,79 @@
+/* #region Form*/
+.car-search {
+  display: flex;
+  gap: 16px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 12px;
+  border: 1px solid slateblue;
+  border-radius: 8px;
+}
+.car-group {
+}
+.car-input,
+.car-select {
+  height: 100%;
+  border: 1px solid slategray;
+  padding: 8px 16px;
+  border-radius: 8px;
+  outline: transparent;
+  transition: 200ms ease;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 50%);
+  }
+}
+.car-button {
+  padding: 8px 16px;
+  color: white;
+  background-color: slateblue;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 200ms ease;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(106, 90, 205, 80%);
+  }
+}
+/* #endregion */
+
+.car-list {
+  list-style-type: none;
+  padding: 24px 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.car-item {
+  padding: 20px;
+  border: 2px solid slateblue;
+  border-radius: 16px;
+  transition: 200ms ease-in;
+
+  &:hover {
+    box-shadow: 4px 4px 0 slateblue;
+  }
+
+  div {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+
+  h3 {
+    margin-bottom: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}

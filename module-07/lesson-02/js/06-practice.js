@@ -18,14 +18,14 @@ const cars = [
     car: 'Honda',
     type: 'Civic',
     price: 12000,
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTCOHzdE-dK6WK7ax8NzQolTcCWA_jhJD-CRGWfqKJIJuGs8ML_-OyiDwzsdC8jOi_K10&usqp=CAU',
+    img: 'https://images.unsplash.com/photo-1666294715367-5a01360e30a5?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     id: 3,
     car: 'Audi',
     type: 'Q7',
     price: 40000,
-    img: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/2017_Audi_Q7_S_Line_Quattro_3.0_Front.jpg',
+    img: 'https://cdn4.riastatic.com/photosnew/auto/photo/audi_q7__490766054f.jpg',
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ const cars = [
     type: 'Accord',
     price: 20000,
     number: '+380000000000',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/7/76/2021_Honda_Accord_Sport_%28facelift%29%2C_front_11.30.21.jpg',
+    img: 'https://www.detroitnews.com/gcdn/presto/2021/07/21/PDTN/5388587b-ae10-48e3-a04c-a8a4aef5fb10-HondaAccord_fr3-4-lake.JPG?width=700&height=395&fit=crop&format=pjpg&auto=webp',
   },
   {
     id: 6,
@@ -55,3 +55,37 @@ const elements = {
   form: document.querySelector('.js-form'),
   container: document.querySelector('.js-list'),
 };
+
+elements.container.insertAdjacentHTML('beforeend', createCarsMarkup(cars));
+elements.form.addEventListener('submit', handlerFormSubmit);
+
+function createCarsMarkup(items) {
+  // return items.map((item) => { }).join('');
+  return items.reduce((acc, item) => {
+    return (acc += `
+      <li class="car-item" data-id="${item.id}">
+        <div>
+          <img src="${item.img}" alt="${item.car} ${item.type}" />
+        </div>
+        <h3>${item.car}</h3>
+        <p>${item.type}</p>
+        <p>
+          Price: <b>${item.price}</b>
+        </p>
+      </li>`);
+  }, '');
+}
+function handlerFormSubmit(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const query = form.elements.query.value.toLowerCase();
+  const option = form.elements.options.value.toLowerCase();
+
+  const filteredCars = cars
+    .filter(car => car[option].toLowerCase().includes(query))
+    .sort((a, b) => a[option].localeCompare(b[option]));
+
+  elements.container.innerHTML = createCarsMarkup(filteredCars);
+
+  form.reset();
+}
