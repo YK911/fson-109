@@ -1,0 +1,16 @@
+{
+  "name": "Mango",
+  "isActive": true,
+  "colorShcema": {
+    "light": {
+      "isAvtive": true
+    },
+    "dark": {
+      "isAvtive": false
+    },
+    "auto": {
+      "isAvtive": false
+    }
+  },
+  "friends": ["Poly", "Ajax"]
+}

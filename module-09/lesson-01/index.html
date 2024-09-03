@@ -15,5 +15,24 @@
         <a href="02-feedback.html">Practice: feedback form</a>
       </li>
     </ul>
+
+    <script>
+      const obj = {
+        name: 'Mango',
+
+        getName: function () {
+          return this.name;
+        },
+      };
+
+      const res = Object.values(obj).map(value => {
+        if (value?.name === 'getName') {
+          return value.name;
+        } else {
+          return value;
+        }
+      });
+      console.log(res);
+    </script>
   </body>
 </html>
