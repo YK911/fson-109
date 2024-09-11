@@ -4,29 +4,26 @@
  * - Функція, яка повертає проміс
  */
 
-const makeOrder = (dish, onSuccess, onError) => {
-  const passed = Math.random() > 0.5;
+const makeOrder = dish => {
+  return new Promise((resolve, reject) => {
+    const passed = Math.random() > 0.5;
 
-  setTimeout(() => {
-    if (passed) {
-      onSuccess(`✅ Ваше замовлення: ${dish}`);
-    }
-
-    onError('❌ Упс, у нас закінчилися продукти');
-  }, 1000);
+    setTimeout(() => {
+      if (passed) {
+        resolve(`✅ Ваше замовлення: ${dish}`);
+      }
+      reject('❌ Упс, у нас закінчилися продукти');
+    }, 1000);
+  });
 };
 
-makeOrder(
-  'пиріжок',
-  result => {
-    console.log('onMakeOrderSuccess');
-    console.log(result);
-  },
-  error => {
-    console.log('onMakeOrderError');
-    console.log(error);
-  }
-);
+// makeOrder('пиріжечок')
+//   .then(result => {
+//     console.log(result);
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
 
 /**
  * Промісифікація «синхронних» функцій
@@ -34,24 +31,26 @@ makeOrder(
  * - Promise.reject()
  */
 
-const prepareDish = (dish, onSuccess, onError) => {
+// Promise.resolve('Success ✅').then(res => {
+//   console.log(res);
+// });
+
+// console.log(Promise.reject('Ууууупс...'));
+
+const prepareDish = dish => {
   const passed = Math.random() > 0.5;
 
-  if (passed) {
-    onSuccess(`✅ Ваше замовлення: ${dish}`);
-  }
-
-  onError('❌ Упс, у нас закінчилися продукти');
+  return passed
+    ? Promise.resolve(`✅ Ваше замовлення: ${dish}`)
+    : Promise.reject('❌ Упс, у нас закінчилися продукти');
 };
 
-makeOrder(
-  'пиріжок',
-  result => {
+prepareDish('пиріжок')
+  .then(result => {
     console.log('onMakeOrderSuccess');
     console.log(result);
-  },
-  error => {
+  })
+  .catch(error => {
     console.log('onMakeOrderError');
     console.log(error);
-  }
-);
+  });

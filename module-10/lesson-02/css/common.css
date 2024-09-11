@@ -45,14 +45,57 @@ td {
   vertical-align: middle;
   line-height: 50px;
 }
+.start-btn {
+  display: block;
+  padding: 10px 30px;
+  margin-inline: auto;
+  margin-bottom: 20px;
+  font-size: 1.25rem;
+  color: white;
+  border-radius: 10px;
+  border-color: transparent;
+  background-color: rebeccapurple;
+  box-shadow: 0 4px 0 3px darkorchid, 0 0 0 3px darkorchid;
+  transition: 200ms;
+
+  &:hover {
+    box-shadow: 0 0px 0 3px darkorchid, 0 0 0 3px darkorchid;
+  }
+  &:active {
+    box-shadow: 0 0 0 0 darkorchid, 0 0 0 0 darkorchid;
+  }
+}
 
 .container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
   font-size: 2rem;
 }
 
 .result {
-  font-size: 1.5rem;
+  display: flex;
+  gap: 2px;
+  max-width: 200px;
+  margin-inline: auto;
   margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+.result-text {
+  position: relative;
+  flex-grow: 1;
+  text-align: center;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: rebeccapurple;
+  }
 }

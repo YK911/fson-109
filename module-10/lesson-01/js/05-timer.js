@@ -4,11 +4,41 @@
  */
 
 class Timer {
-  constructor() {}
+  constructor({ onTick }) {
+    this.intervalId = null;
+    this.isActive = false;
+    this.onTick = onTick;
 
-  start() {}
+    this.init();
+  }
 
-  stop() {}
+  init() {
+    const time = this.getTimeComponents(0);
+    this.onTick(time);
+  }
+
+  start() {
+    if (this.isActive) return;
+
+    const startTime = Date.now();
+
+    this.intervalId = setInterval(() => {
+      this.isActive = true;
+      const currentTime = Date.now();
+
+      const deltaTime = currentTime - startTime;
+      const time = this.getTimeComponents(deltaTime);
+      this.onTick(time);
+    }, 1000);
+  }
+
+  stop() {
+    clearInterval(this.intervalId);
+    // this.isActive = false;
+    this.isActive = !this.isActive;
+    const time = this.getTimeComponents(0);
+    this.onTick(time);
+  }
 
   /*
    * - Приймає час в мілісекундах
@@ -42,12 +72,11 @@ const timer = new Timer({
   onTick: updateClockface,
 });
 
-// startBtn.addEventListener("click", timer.start.bind(timer));
-// stopBtn.addEventListener("click", timer.stop.bind(timer));
+startBtn.addEventListener('click', timer.start.bind(timer));
+stopBtn.addEventListener('click', timer.stop.bind(timer));
 
 /*
- * - Приймає час в мілісекундах
- * - Вираховує скільки в них вміщається годин/хвилин/секунд
+ * - Приймає обʼєкт часу (години/хвилини/секунди)
  * - Рисує інтерфейс
  */
 function updateClockface({ hours, mins, secs }) {
