@@ -10,6 +10,10 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css"
+    />
     <link rel="stylesheet" href="css/common.css" />
     <style>
       .position {
@@ -45,16 +49,37 @@
   <body>
     <p><a href="index.html">Go back</a></p>
 
-    <form class="d-flex align-items-center justify-content-center search-form">
+    <form
+      class="d-flex align-items-center justify-content-center js-search-form"
+    >
       <div class="form-group m-3">
-        <input type="text" class="form-control" name="query" />
+        <input type="text" class="form-control" name="query" value="ditto" />
       </div>
 
       <button type="submit" class="btn btn-primary">Search</button>
     </form>
 
     <span class="loader position is-hidden"></span>
-    <div class="card-container">
+    <div class="card-container js-container">
+      <!-- <article class="card">
+        <div class="card-img-top">
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
+            alt="ditto"
+          />
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Ім'я: ditto</h2>
+          <p class="card-text">Вага: 40</p>
+          <p class="card-text">Зростання: 3</p>
+
+          <p class="card-text"><b>Уміння</b></p>
+          <ul class="list-group">
+            <li>limber</li>
+            <li>imposter</li>
+          </ul>
+        </div>
+      </article> -->
       <!-- <article class="card">
         <div class="card-img-top">
           <img src="${sprites.front_default}" alt="${name}" />
@@ -72,6 +97,7 @@
       </article> -->
     </div>
 
-    <script src="js/03-practice.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
+    <script src="js/03-practice.js" type="module"></script>
   </body>
 </html>

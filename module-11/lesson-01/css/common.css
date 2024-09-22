@@ -16,7 +16,10 @@ img {
   max-width: 100%;
   height: auto;
 }
-
+.card-container {
+  display: flex;
+  justify-content: center;
+}
 .card {
   width: 288px;
 }
