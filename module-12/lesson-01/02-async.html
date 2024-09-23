@@ -6,9 +6,138 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Синтаксис async/await</title>
     <link rel="stylesheet" href="css/common.css" />
+    <style>
+      .todo-title {
+        text-align: center;
+      }
+      .todo-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 40px;
+        border: 1px solid black;
+        border-radius: 16px;
+
+        label {
+          font-weight: 600;
+          text-align: center;
+        }
+
+        input {
+          padding: 12px;
+          height: 40px;
+          border-radius: 8px;
+          border: 1px solid #e2e2e2;
+        }
+      }
+      .todo-list {
+        list-style: none;
+        padding: 0;
+        max-width: 500px;
+        margin: 0 auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .todo-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        padding: 10px 16px;
+        background-color: #e2e2e2;
+        border-radius: 16px;
+      }
+      .todo-filed:checked + .todo-desc {
+        text-decoration: line-through;
+      }
+      .todo-btn {
+        display: block;
+        padding: 8px 16px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        font-size: 18px;
+        background-color: #e2e2e2;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .todo-btn:hover,
+      .todo-btn:focus {
+        background-color: slategray;
+        color: white;
+      }
+      .todos-wrapper {
+        position: relative;
+        min-height: 100px;
+        padding: 16px 0;
+      }
+      .loader {
+        position: absolute;
+        inset: 0;
+        background-color: #fff;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 48px;
+          height: 48px;
+          border: 5px solid #a9a9a9;
+          border-bottom-color: #ff3d00;
+          border-radius: 50%;
+          animation: rotation 1200ms linear infinite both;
+        }
+      }
+      .loader.isVisible {
+        opacity: 1;
+        visibility: visible;
+      }
+      @keyframes rotation {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
     <p><a href="index.html">Go back</a></p>
+
+    <h1 class="todo-title">TODO list:</h1>
+    <form class="todo-form js-todos-form">
+      <label for="todoCount">Enter todos count:</label>
+      <input
+        type="number"
+        min="1"
+        max="20"
+        step="1"
+        id="todoCount"
+        name="todoCount"
+      />
+      <button class="todo-btn" type="submit">Load todos 🧙‍♂️</button>
+    </form>
+
+    <div class="todos-wrapper">
+      <span class="loader js-loader"></span>
+      <ul class="todo-list js-todos">
+        <!-- <li class="todo-item">
+          <input class="todo-filed" type="checkbox" checked />
+          <p class="todo-desc">${todo.title}</p>
+        </li> -->
+      </ul>
+    </div>
 
     <script src="js/02-async.js"></script>
   </body>
