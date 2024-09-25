@@ -12,6 +12,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/common.css" />
+    <script type="module" src="./js/index.js"></script>
   </head>
   <body class="p-3 m-0 border-0">
     <!-- #region Search form -->
@@ -32,7 +33,7 @@
 
     <!-- #region News card container -->
     <div class="articles js-cards-container">
-      <article class="card">
+      <!-- <article class="card">
         <img
           class="card-img-top"
           src="https://placehold.co/600x400?text=Image"
@@ -85,15 +86,15 @@
           </p>
           <a href="#" class="btn btn-outline-primary">Read more</a>
         </div>
-      </article>
+      </article> -->
     </div>
     <!-- #endregion -->
 
     <!-- #region Load more button -->
     <div class="d-flex justify-content-center p-3">
-      <button class="btn btn-primary text-light js-load-more">
+      <button class="btn btn-primary text-light is-hidden js-load-more">
         <span
-          class="spinner spinner-border spinner-border-sm js-loader"
+          class="spinner spinner-border spinner-border-sm is-hidden js-loader"
           aria-hidden="true"
         >
         </span>

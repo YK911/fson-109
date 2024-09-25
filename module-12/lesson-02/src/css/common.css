@@ -67,3 +67,11 @@ img {
   margin-right: auto;
   margin-bottom: 30px;
 }
+
+.articles > .card {
+  min-height: 440px;
+}
+
+.card-img-top {
+  aspect-ratio: 1 / 0.66;
+}
