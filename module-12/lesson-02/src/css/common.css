@@ -9,6 +9,9 @@ body {
     Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.5;
   color: #2a2a2a;
+  min-height: 100dvh;
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff 50%, #007bff29);
+  background-size: cover;
 }
 
 img {
@@ -24,18 +27,31 @@ img {
   margin-bottom: 24px;
 }
 
-.button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
 }
 
-.button.is-hidden {
+.btn.is-hidden {
   display: none;
 }
 
-.button > .spinner.is-hidden {
+.btn > .spinner.is-hidden {
   display: none;
+}
+
+:is(article) .btn {
+  display: inline-flex;
+}
+.input-group
+  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(
+    .valid-feedback
+  ):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: calc(var(--bs-border-width) * -1);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 /* Article List */
@@ -50,21 +66,4 @@ img {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
-}
-
-.articles li {
-  height: 450px;
-  overflow: hidden;
-}
-
-.articles img {
-  display: block;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.articles a {
-  text-decoration: none;
-  color: #2a2a2a;
 }
